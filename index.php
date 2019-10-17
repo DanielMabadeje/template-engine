@@ -5,4 +5,4 @@ $template = new Template();
 
 $template->assign('username', 'test');
 
-$template->render('mytemplate.html');
+$template->render('mytemplate');

@@ -15,9 +15,9 @@ class Template
             foreach ($this->vars as $key => $value) {
                 $contents = preg_replace('/\[' . $key . '\]/', $value, $contents);
             }
-            $contents = preg_replace('/\<\!\-\- if(.*) \-\-\>', '<?php if($1:) ?>', $contents);
-            $contents = preg_replace('/\<\!\-\- else \-\-\>', '<?php else : ?>', $contents);
-            $contents = preg_replace('/\<\!\-\- endif \-\-\>', '<?php endif; ?>', $contents);
+            $contents = preg_replace('/\<\!\-\- if(.*) \-\-\>/', '<?php if ($1) : ?>', $contents);
+            $contents = preg_replace('/\<\!\-\- else \-\-\>/', '<?php else : ?>', $contents);
+            $contents = preg_replace('/\<\!\-\- endif \-\-\>/', '<?php endif; ?>', $contents);
             eval('?>' . $contents . ' <?php');
         } else {
             exit('template error');
